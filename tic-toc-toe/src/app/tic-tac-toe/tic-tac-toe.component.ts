@@ -27,7 +27,7 @@ export class TicTacToeComponent implements OnInit {
     return this.ticTacToeService.showFinal;
   }
 
-  get newGame(): void {
+  get startGame(): void {
      return this.ticTacToeService.startGame();
   }
 
@@ -49,5 +49,9 @@ export class TicTacToeComponent implements OnInit {
 
   get player():number {
     return this.ticTacToeService.player;
+  }
+
+  newGame():void{
+    this.ticTacToeService.newGame();
   }
 }

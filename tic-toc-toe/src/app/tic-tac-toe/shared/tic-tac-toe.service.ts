@@ -73,7 +73,7 @@ export class TicTacToeService {
       this.cpuPlay();
     }
     //vitória
-    if(!this.triumph !== false ) {
+    if(this.triumph !== false ) {
       this._showFinal = true;
     }
     //empate
@@ -94,8 +94,8 @@ export class TicTacToeService {
     }
 
     //valida coluna
-    if(board[column][0] === player && board[column][1] === player && board[column][2] === player) {
-      end = [[column, 0], [column, 1], [column, 2]];
+    if(board[0][column] === player && board[1][column] === player && board[2][column] === player) {
+      end = [[0, column], [1, column], [2, column]];
     }
 
     //valida tabuleiro
