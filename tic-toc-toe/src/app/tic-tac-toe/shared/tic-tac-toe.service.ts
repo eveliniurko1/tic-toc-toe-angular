@@ -66,7 +66,7 @@ export class TicTacToeService {
 
     this.board[posX][posY] = this._player;
     this.numMovement++;
-    //this.triumph = this.endGame(posX, posY, this.board, this._player);
+    this.triumph = this.endGame(posX, posY, this.board, this._player);
     this._player = (this._player === this.X) ? this.O : this.X;
 
     if(!this.triumph && this.numMovement < 9 ) {
@@ -154,11 +154,36 @@ export class TicTacToeService {
         tab[rw][col] = this.EMPTY;
       }
     }
-    return tab;
+    return [];
   }
 
   showX(posX: number, posY: number): boolean {
     return this.board[posX][posY] === this.X;
   }
 
+  showO(posX: number, posY: number): boolean {
+    return this.board[posX][posY] === this.O;
+  }
+
+  showTriumph(posX: number, posY: number): boolean {
+    let showTriumph: boolean = false;
+
+    if(!this.triumph) {
+      return showTriumph;
+    }
+    for(let pos of this.triumph) {
+      if(pos[0] === posX && pos[1] === posY) {
+        showTriumph = true;
+        break;
+      }
+    }
+    return showTriumph;
+  }
+
+  newGame(): void {
+    this.init();
+    this._showFinal = false;
+    this._showInit = false;
+    this._showBoard = true;
+  }
 }
